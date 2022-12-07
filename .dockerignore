@@ -4,4 +4,4 @@ Dockerfile
 .dockerignore
 .git
 .gitignore
-config.json
+src/config/dev.js

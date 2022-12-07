@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
-const { token } = require('../config.json');
+const { discord } = require('./config/keys.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -39,4 +39,4 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
-client.login(token);
+client.login(discord);
