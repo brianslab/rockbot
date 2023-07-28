@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+const getTimeStamp = require('../utils/timestamp.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -12,7 +13,11 @@ module.exports = {
     ),
   async execute(interaction) {
     const game = interaction.options.getString('link');
-    await interaction.reply(game + '\n' + game + '?camera=true');
-    // await interaction.followUp(game + '?camera=true');
+    const cameraLink = game + '?camera=true';
+
+    const timestamp = getTimeStamp();
+
+    console.log(`${timestamp}: sending camera link ${cameraLink}`);
+    await interaction.reply(game + '\n' + cameraLink);
   },
 };
